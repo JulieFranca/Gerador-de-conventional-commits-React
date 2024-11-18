@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, { useState, useEffect, createContext } from 'react';
+import CommitGenerator from './CommitGenerator';
+import DarkModeToggle from './DarkModeToggle';
+import Explanation from './Explanation';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+// Contexto para o modo escuro
+export const DarkModeContext = createContext();
+
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+    if (savedDarkMode !== null) {
+      setDarkMode(savedDarkMode);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+      <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
+        <h1 className="text-center mb-4">Gerador de Conventional Commits</h1>
+        <DarkModeToggle />
+        <Explanation />
+        <CommitGenerator />
+      </div>
+    </DarkModeContext.Provider>
   );
 }
 
