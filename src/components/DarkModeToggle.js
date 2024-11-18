@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { DarkModeContext } from './App'; // Certifique-se de que o caminho está correto
+import { DarkModeContext } from '../App'; // Certifique-se de que o caminho está correto
 
 function DarkModeToggle() {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);

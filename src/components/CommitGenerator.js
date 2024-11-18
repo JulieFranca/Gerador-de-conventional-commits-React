@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import CommitTypeSelect from './CommitTypeSelect';
 import SortableList from './SortableList';
-import { DarkModeContext } from './App';
+import { DarkModeContext } from '../App';
 
 function CommitGenerator() {
   const { t } = useTranslation();

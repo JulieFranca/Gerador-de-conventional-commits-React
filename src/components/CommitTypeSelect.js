@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DarkModeContext } from './App';
+import { DarkModeContext } from '../App';
 
 function CommitTypeSelect({ setCommitType }) {
   const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import Sortable from 'sortablejs';
-import { DarkModeContext } from './App';
+import { DarkModeContext } from '../App';
 
 function SortableList({ pattern, setTaskId, setDescription, setSeparators, onOrderChange }) {
   const { t } = useTranslation();

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import CommitGenerator from './CommitGenerator';
-import DarkModeToggle from './DarkModeToggle';
-import Explanation from './Explanation';
+import CommitGenerator from './components/CommitGenerator';
+import DarkModeToggle from './components/DarkModeToggle';
+import Explanation from './components/Explanation';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import './i18n'; // Importa a configuração do i18n
+import './components/i18n'; // Importa a configuração do i18n
 
 // Contexto para o modo escuro
 export const DarkModeContext = createContext();
