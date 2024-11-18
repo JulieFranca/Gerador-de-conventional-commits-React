@@ -1,8 +1,10 @@
 import React, { useEffect, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import Sortable from 'sortablejs';
 import { DarkModeContext } from './App';
 
 function SortableList({ pattern, setTaskId, setDescription, setSeparators, onOrderChange }) {
+  const { t } = useTranslation();
   const { darkMode } = useContext(DarkModeContext);
 
   useEffect(() => {
@@ -35,8 +37,8 @@ function SortableList({ pattern, setTaskId, setDescription, setSeparators, onOrd
       
       <div id="commitTaskId" className={`draggable ${darkMode ? 'dark-mode' : ''}`}>
         <span className="drag-icon">↕️</span>
-        <label htmlFor="commitTaskIdInput">Identificador da Tarefa:</label>
-        <input type="text" id="commitTaskIdInput" className="form-control" placeholder="Insira o identificador da tarefa" onChange={handleInputChange} />
+        <label htmlFor="commitTaskIdInput">{t('taskId')}:</label>
+        <input type="text" id="commitTaskIdInput" className="form-control" placeholder={t('taskId')} onChange={handleInputChange} />
         <div className="separator-container mt-2">
           <input type="text" id="commitTaskIdOpen" className="separator-input" placeholder="(" onChange={handleInputChange} />
           <input type="text" id="commitTaskIdClose" className="separator-input" placeholder=")" onChange={handleInputChange} />
@@ -45,8 +47,8 @@ function SortableList({ pattern, setTaskId, setDescription, setSeparators, onOrd
 
       <div id="commitDescription" className={`draggable ${darkMode ? 'dark-mode' : ''}`}>
         <span className="drag-icon">↕️</span>
-        <label htmlFor="commitDescriptionInput">Descrição:</label>
-        <textarea id="commitDescriptionInput" className="form-control" rows="4" placeholder="Insira a descrição" onChange={handleInputChange}></textarea>
+        <label htmlFor="commitDescriptionInput">{t('description')}:</label>
+        <textarea id="commitDescriptionInput" className="form-control" rows="4" placeholder={t('description')} onChange={handleInputChange}></textarea>
         <div className="separator-container mt-2">
           <input type="text" id="commitDescriptionOpen" className="separator-input" placeholder="[" onChange={handleInputChange} />
           <input type="text" id="commitDescriptionClose" className="separator-input" placeholder="]" onChange={handleInputChange} />

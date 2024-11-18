@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import CommitTypeSelect from './CommitTypeSelect';
 import SortableList from './SortableList';
 import { DarkModeContext } from './App';
 
 function CommitGenerator() {
+  const { t } = useTranslation();
   const { darkMode } = useContext(DarkModeContext);
   const [pattern, setPattern] = useState('conventional');
   const [commitString, setCommitString] = useState('');
@@ -52,7 +54,7 @@ function CommitGenerator() {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(commitString).then(() => {
-      setNotification('Texto copiado para a área de transferência!');
+      setNotification(t('copySuccess'));
       setTimeout(() => setNotification(''), 3000);
     }, (err) => {
       console.error('Erro ao copiar texto: ', err);
@@ -62,7 +64,7 @@ function CommitGenerator() {
   return (
     <div className={`card p-4 ${darkMode ? 'dark-mode' : ''}`}>
       <div className="form-group">
-        <label htmlFor="patternType">Selecione o Padrão de Geração:</label>
+        <label htmlFor="patternType">{t('selectPattern')}</label>
         <select id="patternType" className="form-control" value={pattern} onChange={e => setPattern(e.target.value)}>
           <option value="conventional">Conventional Commits</option>
           <option value="custom">Custom Pattern</option>
@@ -76,7 +78,7 @@ function CommitGenerator() {
         setSeparators={setSeparators}
         onOrderChange={setOrder}
       />
-      <h2 className="mt-4">Resultado:</h2>
+      <h2 className="mt-4">{t('result')}</h2>
       <div className="d-flex align-items-center">
         <textarea className="form-control" rows="4" value={commitString} readOnly />
         <span className="copy-icon" onClick={copyToClipboard} style={{ cursor: 'pointer', marginLeft: '10px' }}>📋</span>
