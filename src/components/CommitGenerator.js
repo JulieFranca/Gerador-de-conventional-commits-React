@@ -33,15 +33,22 @@ function CommitGenerator() {
     let parts = [`${commitType}:`];
 
     if (pattern === 'conventional') {
-      if (taskId || description) parts.push('');
       order.forEach(id => {
-        if (id === 'commitTaskId' && taskId) parts.push(`${separators.taskIdOpen}${taskId}${separators.taskIdClose}`);
-        if (id === 'commitDescription' && description) parts.push(`${separators.descriptionOpen}${description}${separators.descriptionClose}`);
+        if (id === 'commitTaskId' && taskId) {
+          parts.push(`${separators.taskIdOpen}${taskId}${separators.taskIdClose}`);
+        }
+        if (id === 'commitDescription' && description) {
+          parts.push(`${separators.descriptionOpen}${description}${separators.descriptionClose}`);
+        }
       });
     } else {
       order.forEach(id => {
-        if (id === 'commitTaskId' && taskId) parts.push(`${separators.taskIdOpen}${taskId}${separators.taskIdClose}`);
-        if (id === 'commitDescription' && description) parts.push(`${separators.descriptionOpen}${description}${separators.descriptionClose}`);
+        if (id === 'commitTaskId' && taskId) {
+          parts.push(`${separators.taskIdOpen}${taskId}${separators.taskIdClose}`);
+        }
+        if (id === 'commitDescription' && description) {
+          parts.push(`${separators.descriptionOpen}${description}${separators.descriptionClose}`);
+        }
       });
     }
 
