@@ -1,60 +1,60 @@
-# Gerador de Conventional Commits
+# Conventional Commits Generator
 
-Este projeto é uma aplicação React que gera mensagens de commit seguindo a convenção "Conventional Commits". A aplicação suporta múltiplos idiomas, inclui um modo escuro e permite a personalização da ordem dos campos de entrada.
+This project is a React application that generates commit messages following the "Conventional Commits" convention. The application supports multiple languages, includes a dark mode, and allows customization of the input fields' order.
 
-## Funcionalidades
+## Features
 
-- **Geração de Mensagens de Commit**: Crie mensagens de commit padronizadas de acordo com a convenção "Conventional Commits".
-- **Modo Escuro**: Alterne entre o modo claro e escuro para uma experiência de usuário personalizada.
-- **Suporte a Múltiplos Idiomas**: Alterne entre inglês e português usando bandeiras.
-- **Reordenação de Campos**: Personalize a ordem dos campos de entrada para gerar mensagens de commit personalizadas.
-- **Cópia para Área de Transferência**: Copie facilmente a mensagem de commit gerada para a área de transferência.
+- **Commit Message Generation**: Create standardized commit messages according to the "Conventional Commits" convention.
+- **Dark Mode**: Toggle between light and dark modes for a personalized user experience.
+- **Multi-language Support**: Switch between English and Portuguese using flags.
+- **Reordering Fields**: Customize the order of input fields to generate personalized commit messages.
+- **Copy to Clipboard**: Easily copy the generated commit message to the clipboard.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
-- **react-i18next**: Biblioteca para internacionalização de aplicações React.
-- **SortableJS**: Biblioteca para reordenação de elementos via drag-and-drop.
-- **Bootstrap**: Framework CSS para estilização responsiva.
+- **React**: JavaScript library for building user interfaces.
+- **react-i18next**: Library for internationalizing React applications.
+- **SortableJS**: Library for reordering elements via drag-and-drop.
+- **Bootstrap**: CSS framework for responsive styling.
 
-## Instalação
+## Installation
 
-1. **Clone o repositório**:
+1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/seu-usuario/gerador-conventional-commits.git
-   cd gerador-conventional-commits
+   git clone https://github.com/your-username/conventional-commits-generator.git
+   cd conventional-commits-generator
    ```
 
-2. **Instale as dependências**:
+2. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-3. **Inicie o servidor de desenvolvimento**:
+3. **Start the development server**:
 
    ```bash
    npm start
    ```
 
-4. **Acesse a aplicação**:
+4. **Access the application**:
 
-   Abra o navegador e acesse `http://localhost:3000`.
+   Open your browser and go to `http://localhost:3000`.
 
-## Uso
+## Usage
 
-1. **Selecione o Tipo de Commit**: Escolha o tipo de commit no menu suspenso.
-2. **Preencha os Campos**: Insira o identificador da tarefa e a descrição.
-3. **Reordene os Campos**: Arraste e solte os campos para personalizar a ordem das informações no commit.
-4. **Copie a Mensagem**: Clique no ícone de copiar para copiar a mensagem gerada para a área de transferência.
-5. **Alterne o Idioma**: Clique nas bandeiras no topo da página para alternar entre inglês e português.
-6. **Modo Escuro**: Clique no ícone de lua/sol no topo da página para alternar entre o modo claro e escuro.
+1. **Select Commit Type**: Choose the commit type from the dropdown menu.
+2. **Fill in the Fields**: Enter the task identifier and description.
+3. **Reorder Fields**: Drag and drop the fields to customize the order of the commit information.
+4. **Copy the Message**: Click the copy icon to copy the generated message to the clipboard.
+5. **Switch Language**: Click the flags at the top of the page to switch between English and Portuguese.
+6. **Dark Mode**: Click the moon/sun icon at the top of the page to toggle between light and dark modes.
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
-gerador-conventional-commits/
+conventional-commits-generator/
 ├── node_modules/
 ├── public/
 ├── src/
@@ -73,18 +73,22 @@ gerador-conventional-commits/
 └── README.md
 ```
 
-## Desenvolvido por
+## Developed By
 
-Este projeto foi desenvolvido por Julie da [DevCerberus](https://devcerberus.com). Para mais informações ou suporte, entre em contato pelo e-mail: [contato@devcerberus.com](mailto:contato@devcerberus.com).
+This project was developed by Julie from [DevCerberus](https://devcerberus.com). For more information or support, contact us at: [contact@devcerberus.com](mailto:contact@devcerberus.com).
 
 <p align="center">
 <img src="src/img/logo.png" alt="DevCerberus Logo" width="200" />
 </p>
 
-## Contribuição
+## Contribution
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias e correções.
+Contributions are welcome! Feel free to open issues and pull requests for improvements and fixes.
 
-## Licença
+## References
 
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+The concept of **Conventional Commits** used in this project was inspired by [this article](https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657) written by Victor Ribeiro, published on October 19, 2020, on *medium.com*.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
