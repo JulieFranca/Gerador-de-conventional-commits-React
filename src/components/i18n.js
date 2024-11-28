@@ -17,6 +17,7 @@ const resources = {
       commitTypes: {
         feat: "feat - New feature development",
         fix: "fix - Bug fixes",
+        merge: "merge - joining data that comes from another branch",
         refactor: "refactor - Code refactoring without logic changes",
         chore: "chore - Project changes that do not affect the system",
         docs: "docs - Documentation changes",
@@ -45,6 +46,7 @@ const resources = {
       commitTypes: {
         feat: "feat - Desenvolvimento de uma nova feature",
         fix: "fix - Correção de erros que geram bugs",
+        merge: "merge - juntar dados provenientes de outra branch",
         refactor: "refactor - Refatoração de código sem impacto na lógica",
         chore: "chore - Mudanças no projeto que não afetam o sistema",
         docs: "docs - Mudanças na documentação do projeto",

@@ -17,6 +17,7 @@ function CommitTypeSelect({ setCommitType }) {
       <select id="commitTypeSelect" className="form-control" onChange={handleSelectChange}>
         <option value="feat">{t('commitTypes.feat')}</option>
         <option value="fix">{t('commitTypes.fix')}</option>
+        <option value="merge">{t('commitTypes.merge')}</option>
         <option value="refactor">{t('commitTypes.refactor')}</option>
         <option value="chore">{t('commitTypes.chore')}</option>
         <option value="docs">{t('commitTypes.docs')}</option>
