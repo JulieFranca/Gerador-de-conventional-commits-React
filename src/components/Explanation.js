@@ -7,10 +7,10 @@ function Explanation() {
   const { t } = useTranslation();
 
   return (
-    <div className={`alert alert-info ${darkMode ? 'dark-mode' : ''}`}>
-      <h4>{t('explanation.heading')}</h4>
-      <p>{t('explanation.paragraph1')}</p>
-      <p>{t('explanation.paragraph2')}</p>
+    <div className={`alert alert-info mb-3 py-2 ${darkMode ? 'dark-mode' : ''}`}>
+      <h5 className="mb-2">{t('explanation.heading')}</h5>
+      <p className="mb-1 small">{t('explanation.paragraph1')}</p>
+      <p className="mb-0 small">{t('explanation.paragraph2')}</p>
     </div>
   );
 }

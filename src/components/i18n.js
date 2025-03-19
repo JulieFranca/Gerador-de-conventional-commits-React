@@ -14,6 +14,9 @@ const resources = {
       selectPattern: "Select Generation Pattern:",
       result: "Result:",
       copySuccess: "Text copied to clipboard!",
+      commitType: "Commit Type",
+      dragInstructions: "Drag and drop fields below to customize the commit information order. Add custom separators if desired.",
+      copy: "Copy to clipboard",
       commitTypes: {
         feat: "feat - New feature development",
         fix: "fix - Bug fixes",
@@ -43,6 +46,9 @@ const resources = {
       selectPattern: "Selecione o Padrão de Geração:",
       result: "Resultado:",
       copySuccess: "Texto copiado para a área de transferência!",
+      commitType: "Tipo do Commit",
+      dragInstructions: "Arraste e solte os campos abaixo para personalizar a ordem das informações no commit. Adicione separadores customizados se desejar.",
+      copy: "Copiar para área de transferência",
       commitTypes: {
         feat: "feat - Desenvolvimento de uma nova feature",
         fix: "fix - Correção de erros que geram bugs",

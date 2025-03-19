@@ -75,7 +75,7 @@ conventional-commits-generator/
 
 ## Developed By
 
-This project was developed by Julie from [DevCerberus](https://devcerberus.com). For more information or support, contact us at: [contact@devcerberus.com](mailto:contact@devcerberus.com).
+This project was developed by Julie from [DevCerberus](https://devcerberus.com). For more information or support, contact us at: [juliefrancasouza@gmail.com](mailto:juliefrancasouza@gmail.com).
 
 <p align="center">
 <img src="src/img/logo.png" alt="DevCerberus Logo" width="200" />

@@ -12,9 +12,13 @@ function CommitTypeSelect({ setCommitType }) {
   };
 
   return (
-    <div id="commitType" className={darkMode ? 'dark-mode' : ''}>
-      <label htmlFor="commitTypeSelect">{t('taskId')}:</label>
-      <select id="commitTypeSelect" className="form-control" onChange={handleSelectChange}>
+    <div id="commitType" className={`form-group mb-3 ${darkMode ? 'dark-mode' : ''}`}>
+      <label htmlFor="commitTypeSelect" className="form-label mb-1 small">{t('commitType')}:</label>
+      <select 
+        id="commitTypeSelect" 
+        className="form-select form-select-sm" 
+        onChange={handleSelectChange}
+      >
         <option value="feat">{t('commitTypes.feat')}</option>
         <option value="fix">{t('commitTypes.fix')}</option>
         <option value="merge">{t('commitTypes.merge')}</option>

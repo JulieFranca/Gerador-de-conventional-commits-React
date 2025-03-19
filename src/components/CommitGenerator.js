@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import CommitTypeSelect from './CommitTypeSelect';
 import SortableList from './SortableList';
@@ -29,35 +29,24 @@ function CommitGenerator() {
     }
   }, []);
 
-  const generateCommitString = () => {
+  const generateCommitString = useCallback(() => {
     let parts = [`${commitType}:`];
 
-    if (pattern === 'conventional') {
-      order.forEach(id => {
-        if (id === 'commitTaskId' && taskId) {
-          parts.push(`${separators.taskIdOpen}${taskId}${separators.taskIdClose}`);
-        }
-        if (id === 'commitDescription' && description) {
-          parts.push(`${separators.descriptionOpen}${description}${separators.descriptionClose}`);
-        }
-      });
-    } else {
-      order.forEach(id => {
-        if (id === 'commitTaskId' && taskId) {
-          parts.push(`${separators.taskIdOpen}${taskId}${separators.taskIdClose}`);
-        }
-        if (id === 'commitDescription' && description) {
-          parts.push(`${separators.descriptionOpen}${description}${separators.descriptionClose}`);
-        }
-      });
-    }
+    order.forEach(id => {
+      if (id === 'commitTaskId' && taskId) {
+        parts.push(`${separators.taskIdOpen || ''}${taskId}${separators.taskIdClose || ''}`);
+      }
+      if (id === 'commitDescription' && description) {
+        parts.push(`${separators.descriptionOpen || ''}${description}${separators.descriptionClose || ''}`);
+      }
+    });
 
     setCommitString(parts.join(' ').trim());
-  };
+  }, [commitType, taskId, description, separators, order]);
 
   useEffect(() => {
     generateCommitString();
-  }, [commitType, taskId, description, separators, pattern, order]);
+  }, [generateCommitString]);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(commitString).then(() => {
@@ -69,15 +58,22 @@ function CommitGenerator() {
   };
 
   return (
-    <div className={`card p-4 ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="form-group">
-        <label htmlFor="patternType">{t('selectPattern')}</label>
-        <select id="patternType" className="form-control" value={pattern} onChange={e => setPattern(e.target.value)}>
+    <div className={`card p-3 mb-4 ${darkMode ? 'dark-mode' : ''}`}>
+      <div className="form-group mb-3">
+        <label htmlFor="patternType" className="form-label mb-1 small">{t('selectPattern')}</label>
+        <select 
+          id="patternType" 
+          className="form-select form-select-sm" 
+          value={pattern} 
+          onChange={e => setPattern(e.target.value)}
+        >
           <option value="conventional">Conventional Commits</option>
           <option value="custom">Custom Pattern</option>
         </select>
       </div>
+      
       <CommitTypeSelect setCommitType={setCommitType} />
+      
       <SortableList
         pattern={pattern}
         setTaskId={setTaskId}
@@ -85,12 +81,29 @@ function CommitGenerator() {
         setSeparators={setSeparators}
         onOrderChange={setOrder}
       />
-      <h2 className="mt-4">{t('result')}</h2>
+      
+      <h4 className="mt-3 mb-2">{t('result')}</h4>
       <div className="d-flex align-items-center">
-        <textarea className="form-control" rows="4" value={commitString} readOnly />
-        <span className="copy-icon" onClick={copyToClipboard} style={{ cursor: 'pointer', marginLeft: '10px' }}>📋</span>
+        <textarea 
+          className="form-control form-control-sm" 
+          rows="3" 
+          value={commitString} 
+          readOnly 
+        />
+        <span 
+          className="copy-icon ms-2" 
+          onClick={copyToClipboard} 
+          title={t('copy')}
+        >
+          📋
+        </span>
       </div>
-      {notification && <div className="alert alert-success mt-3">{notification}</div>}
+      
+      {notification && 
+        <div className="alert alert-success mt-2 py-2 small">
+          {notification}
+        </div>
+      }
     </div>
   );
 }

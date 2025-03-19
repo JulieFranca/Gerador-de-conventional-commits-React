@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import CommitGenerator from './components/CommitGenerator';
 import DarkModeToggle from './components/DarkModeToggle';
 import Explanation from './components/Explanation';
+import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './components/i18n'; // Importa a configuração do i18n
@@ -23,6 +24,12 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
+    // Aplica o modo escuro ao body
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   }, [darkMode]);
 
   const changeLanguage = (lng) => {
@@ -49,9 +56,14 @@ function App() {
             />
           </div>
         </div>
-        <h1 className="text-center mb-4">{t('title')}</h1>
-        <Explanation />
-        <CommitGenerator />
+        
+        <div className="container-fluid">
+          <h1 className="text-center mb-3">{t('title')}</h1>
+          <Explanation />
+          <CommitGenerator />
+        </div>
+        
+        <Footer />
       </div>
     </DarkModeContext.Provider>
   );

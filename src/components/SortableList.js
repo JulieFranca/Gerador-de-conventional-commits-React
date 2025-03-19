@@ -22,36 +22,56 @@ function SortableList({ pattern, setTaskId, setDescription, setSeparators, onOrd
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    if (id.includes('commitTaskId')) {
+    if (id === 'commitTaskIdInput') {
       setTaskId(value);
-    } else if (id.includes('commitDescription')) {
+    } else if (id === 'commitDescriptionInput') {
       setDescription(value);
     } else {
-      setSeparators(prev => ({ ...prev, [id]: value }));
+      // Mapeamento dos novos IDs para as chaves esperadas pelo objeto separators
+      const idMapping = {
+        'taskIdOpen': 'taskIdOpen',
+        'taskIdClose': 'taskIdClose',
+        'descriptionOpen': 'descriptionOpen',
+        'descriptionClose': 'descriptionClose'
+      };
+      
+      setSeparators(prev => ({ ...prev, [idMapping[id] || id]: value }));
     }
   };
 
   return (
     <div id="sortable" className={`form-group ${darkMode ? 'dark-mode' : ''}`}>
-      <p className="sortable-instructions"><strong>Instruções:</strong> Arraste e solte os campos abaixo para personalizar a ordem das informações no commit. Adicione separadores customizados se desejar.</p>
+      <p className="sortable-instructions small mb-2"><strong>{t('dragInstructions')}</strong></p>
       
       <div id="commitTaskId" className={`draggable ${darkMode ? 'dark-mode' : ''}`}>
         <span className="drag-icon">↕️</span>
-        <label htmlFor="commitTaskIdInput">{t('taskId')}:</label>
-        <input type="text" id="commitTaskIdInput" className="form-control" placeholder={t('taskId')} onChange={handleInputChange} />
-        <div className="separator-container mt-2">
-          <input type="text" id="commitTaskIdOpen" className="separator-input" placeholder="(" onChange={handleInputChange} />
-          <input type="text" id="commitTaskIdClose" className="separator-input" placeholder=")" onChange={handleInputChange} />
+        <label htmlFor="commitTaskIdInput" className="form-label mb-1 small">{t('taskId')}:</label>
+        <input 
+          type="text" 
+          id="commitTaskIdInput" 
+          className="form-control form-control-sm" 
+          placeholder={t('taskId')} 
+          onChange={handleInputChange} 
+        />
+        <div className="separator-container mt-1">
+          <input type="text" id="taskIdOpen" className="separator-input form-control-sm" placeholder="(" onChange={handleInputChange} />
+          <input type="text" id="taskIdClose" className="separator-input form-control-sm" placeholder=")" onChange={handleInputChange} />
         </div>
       </div>
 
       <div id="commitDescription" className={`draggable ${darkMode ? 'dark-mode' : ''}`}>
         <span className="drag-icon">↕️</span>
-        <label htmlFor="commitDescriptionInput">{t('description')}:</label>
-        <textarea id="commitDescriptionInput" className="form-control" rows="4" placeholder={t('description')} onChange={handleInputChange}></textarea>
-        <div className="separator-container mt-2">
-          <input type="text" id="commitDescriptionOpen" className="separator-input" placeholder="[" onChange={handleInputChange} />
-          <input type="text" id="commitDescriptionClose" className="separator-input" placeholder="]" onChange={handleInputChange} />
+        <label htmlFor="commitDescriptionInput" className="form-label mb-1 small">{t('description')}:</label>
+        <textarea 
+          id="commitDescriptionInput" 
+          className="form-control form-control-sm" 
+          rows="3" 
+          placeholder={t('description')} 
+          onChange={handleInputChange}
+        ></textarea>
+        <div className="separator-container mt-1">
+          <input type="text" id="descriptionOpen" className="separator-input form-control-sm" placeholder="[" onChange={handleInputChange} />
+          <input type="text" id="descriptionClose" className="separator-input form-control-sm" placeholder="]" onChange={handleInputChange} />
         </div>
       </div>
     </div>
